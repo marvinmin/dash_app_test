@@ -79,7 +79,7 @@ def make_plot1(year_range=[2000,2001], stat = 'rate'): #Add in a default value t
     #alt.themes.enable('none') # to return to default
 
     #READ IN DATA
-    df_raw = pd.read_csv('../data/unemply_df_year.csv', index_col=0)
+    df_raw = pd.read_csv('data/unemply_df_year.csv', index_col=0)
     df = df_raw.drop(columns = ['count', 'rate'])
     df = df_raw.pivot(index = 'industry', columns = 'year', values = 'total').reset_index()
 
@@ -181,7 +181,7 @@ def make_plot2(industries = ["Agriculture", "Construction"], stat = "rate"): #Ad
     #alt.themes.enable('none') # to return to default
 
     #READ IN DATA
-    df_raw = pd.read_csv('../data/unemply_df_year.csv', index_col=0)
+    df_raw = pd.read_csv('data/unemply_df_year.csv', index_col=0)
     new_df = df_raw
     new_df = new_df.query('industry in @industries')
     new_df = new_df.loc[:, ['year', 'industry', stat]]
@@ -278,7 +278,7 @@ def make_plot3(industries = ["Agriculture", "Construction"], year = 2000, stat =
     alt.themes.enable('mds_special')
     #alt.themes.enable('none') # to return to default
     #READ IN DATA
-    df_raw = pd.read_csv('../data/unemply_df_month.csv', index_col=0)
+    df_raw = pd.read_csv('data/unemply_df_month.csv', index_col=0)
     new_df = df_raw
     new_df = new_df.query('industry in @industries')
     new_df = new_df.query('year == @year')
